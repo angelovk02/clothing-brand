@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background-image: url('../../resources/images/black15.webp');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.shop-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}

@@ -1,0 +1,17 @@
+.user-page {
+    padding: 20px;
+}
+
+.user-options {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.user-options li {
+    margin-bottom: 10px;
+}
+
+.user-options a {
+    text-decoration: none;
+}
