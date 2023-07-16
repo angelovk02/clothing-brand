@@ -7,26 +7,20 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
     {
-        path: 'user',
-        component: UserComponent
-    },
-    
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-    },
-    
-    
-    
-  
+        path: 'user', component: UserComponent,
+        children: [
+            { path: 'register', component: RegisterComponent },
+            { path: 'login', component: LoginComponent }
+        ]
+    }
+
+
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class UserRoutingModule { }

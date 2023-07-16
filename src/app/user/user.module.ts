@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 
 
 
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -15,7 +16,7 @@ import { UserComponent } from './user/user.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
   ]
 })
 export class UserModule { }
