@@ -47,3 +47,21 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
     background-color: #555;
 }
+
+.text-center {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    /* Add spacing between the form and the link */
+}
+
+.text-center a {
+    color: #007bff;
+    /* Add your preferred link color */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text-center a:hover {
+    text-decoration: none;
+}

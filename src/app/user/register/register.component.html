@@ -1,17 +1,70 @@
-<form>
+<form  [formGroup]="form" (ngSubmit)="register()">
     <h2>Registration Form</h2>
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" formControlName="email" >
+
+    <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Email is required!
+        </p>
+        <p
+          class="error"
+          *ngIf="form.get('email')?.errors?.['appEmailValidator']"
   
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" required>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+          Username's length should not be less than 3!
+        </p>
+    </ng-container>
+
+    <label for="tel">Telephone:</label>
+    <input type="text" id="tel" name="tel"  formControlName="tel" placeholder="+359 1223131">
+   
+   
+    <ng-container formGroupName="passGroup">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" formControlName="password">
+
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+            <p
+              class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">
+              Password is required!
+            </p>
+            <p
+              class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']">
+              Password must be at least
+              {{
+                form.get('passGroup')?.get('password')?.errors?.['minlength']?.['requiredLength']
+              }}
+              characters!
+            </p>
+        </ng-container>
   
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword">
   
-    <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" required>
-  
-    <button type="submit">Register</button>
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+            <p
+              class="error" 
+              *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] 
+              ||
+               form.get('passGroup')?.get('confirmPassword')?.errors?.['required']">
+              Repeat Password does not match password!
+            </p>
+        </ng-container>
+
+    </ng-container>
+
+
+    <button [disabled]="form.invalid">Register</button>
+
+    <p class="text-center">
+        Have an account?
+        <a routerLink="/user/login">Log In</a>
+    </p>
+    
 </form>
   

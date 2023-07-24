@@ -11,6 +11,11 @@ import { ItemsModule } from './items/items.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
+import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticationComponent } from './authentication/authentication.component';
+
 
 @NgModule({
   declarations: [
@@ -18,16 +23,20 @@ import { AboutComponent } from './about/about.component';
     ShopComponent,
     HomeComponent,
     NotFoundComponent,
-    AboutComponent
+    AboutComponent,
+    AuthenticationComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     UserModule,
-    ItemsModule
+    ItemsModule,
+    SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

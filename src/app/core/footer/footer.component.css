@@ -49,3 +49,39 @@ nav {
 .user-icon {
     margin-right: 10px;
 }
+
+.logout {
+    cursor: pointer;
+}
+
+
+.user-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    margin-bottom: 8px;
+    color: black
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    text-decoration: underline;
+}
