@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     HomeComponent,
     NotFoundComponent,
     AboutComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

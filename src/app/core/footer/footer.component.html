@@ -17,7 +17,7 @@
     </div>
     <div class="right-section" *ngIf="!isLoggedIn">
       <a routerLink="/user" class="user-icon"><i class="fas fa-user"></i></a>
-      <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>      
+      <a routerLink="/cart" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>      
     </div>
 
     <!-- <div class="right-section" *ngIf="isLoggedIn">
@@ -33,7 +33,7 @@
           <li><a (click)="logout(); toggleDropdown($event)" class="logout">Logout</a></li>
         </ul>
       </div>
-      <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+      <a routerLink="/cart" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
     </div>
     
  
