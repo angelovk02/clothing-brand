@@ -1,1 +1,11 @@
-<p>pants works!</p>
+<div class="clothing-wrapper">
+    <div class="clothing-container" *ngFor="let pairOfPants of pants">
+        <img class="clothing-image" src={{pairOfPants.image}} alt="Clothing Image">
+        <div class="clothing-name">{{pairOfPants.name}}</div>
+        <div class="clothing-price">{{pairOfPants.price}}</div>
+    </div>
+
+   
+
+    <!-- Add more clothing items here as needed -->
+</div>

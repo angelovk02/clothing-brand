@@ -1,1 +1,11 @@
-<p>t-shirts works!</p>
+<div class="clothing-wrapper">
+    <div class="clothing-container" *ngFor="let tShirt of tShirts">
+        <img class="clothing-image" src={{tShirt.image}} alt="Clothing Image">
+        <div class="clothing-name">{{tShirt.name}}</div>
+        <div class="clothing-price">{{tShirt.price}}</div>
+    </div>
+
+   
+
+    <!-- Add more clothing items here as needed -->
+</div>

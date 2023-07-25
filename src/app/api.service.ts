@@ -16,7 +16,16 @@ export class ApiService {
 
   findHoodies() {
     const { apiUrl } = environment;
-    return this.http.get<Item[]>(`${apiUrl}/themes`);
+    return this.http.get<Item[]>(`${apiUrl}/themes/hoodies`);
   }
 
+  findPants() {
+    const { apiUrl } = environment;
+    return this.http.get<Item[]>(`${apiUrl}/themes/pants`);
+  }
+
+  findTshirts() {
+    const { apiUrl } = environment;
+    return this.http.get<Item[]>(`${apiUrl}/themes/t-shirts`);
+  }
 }
