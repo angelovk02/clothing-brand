@@ -1,0 +1,61 @@
+<div class="form-container">
+    <h2>Add Item to Clothing Shop</h2>
+
+    <form [formGroup]="form" (ngSubmit)="addItem()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" formControlName="name">
+
+        <ng-container *ngIf="form.get('name')?.touched">
+            <p *ngIf="form.get('name')?.errors?.['required']">
+              Name is required!
+            </p>
+          </ng-container>
+
+          <p  *ngIf="form.get('name')?.errors?.['minlength']">
+            Username's length should not be less than 
+            {{form.get('name')?.errors?.['minlength']?.['requiredLength']}}
+            characters!
+          </p>
+
+
+
+          <!-- <p
+          class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']">
+          Password must be at least
+          {{
+            form.get('passGroup')?.get('password')?.errors?.['minlength']?.['requiredLength']
+          }}
+          characters!
+        </p> -->
+
+        <label for="image">Image Link:</label>
+        <input type="url" id="image" name="image" formControlName="image">
+
+        <ng-container *ngIf="form.get('image')?.touched">
+            <p  *ngIf="form.get('image')?.errors?.['required']">
+              Image link is required!
+            </p>
+          </ng-container>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" formControlName="category">
+            <option value="" disabled selected>Select a category</option>
+            <option value="pants">Pants</option>
+            <option value="t-shirts">T-Shirts</option>
+            <option value="hoodies">Hoodies</option>
+        </select>
+
+    
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" formControlName="price">
+
+        <ng-container *ngIf="form.get('price')?.touched">
+            <p class="error" *ngIf="form.get('price')?.errors?.['required']">
+              Price is required!
+            </p>
+        </ng-container>
+
+        <button [disabled]="form.invalid">Add Item</button>
+    </form>
+</div>

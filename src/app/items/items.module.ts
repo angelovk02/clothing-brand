@@ -5,6 +5,9 @@ import { ItemsRoutingModule } from './items-routing.module';
 import { PantsComponent } from './pants/pants.component';
 import { HoodiesComponent } from './hoodies/hoodies.component';
 import { TShirtsComponent } from './t-shirts/t-shirts.component';
+import { AddItemComponent } from './add-item/add-item.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 
 
 
@@ -12,10 +15,14 @@ import { TShirtsComponent } from './t-shirts/t-shirts.component';
   declarations: [
     PantsComponent,
     HoodiesComponent,
-    TShirtsComponent
+    TShirtsComponent,
+    AddItemComponent
   ],
   imports: [
-    CommonModule,ItemsRoutingModule
+    CommonModule,
+    ItemsRoutingModule,  
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ItemsModule { }

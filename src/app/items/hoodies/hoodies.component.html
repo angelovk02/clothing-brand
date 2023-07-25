@@ -1,1 +1,11 @@
-<p>hoodies works!</p>
+<div class="clothing-wrapper">
+    <div class="clothing-container" *ngFor="let hoodie of hoodiess">
+        <img class="clothing-image" src={{hoodie.image}} alt="Clothing Image">
+        <div class="clothing-name">{{hoodie.name}}</div>
+        <div class="clothing-price">{{hoodie.price}}</div>
+    </div>
+
+   
+
+    <!-- Add more clothing items here as needed -->
+</div>

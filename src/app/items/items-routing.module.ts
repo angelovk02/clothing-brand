@@ -4,6 +4,7 @@ import { ShopComponent } from '../shop/shop.component';
 import { PantsComponent } from './pants/pants.component';
 import { HoodiesComponent } from './hoodies/hoodies.component';
 import { TShirtsComponent } from './t-shirts/t-shirts.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 const routes: Routes = [
     {
@@ -12,7 +13,12 @@ const routes: Routes = [
             { path: 'pants', component: PantsComponent },
             { path: 'hoodies', component: HoodiesComponent },
             { path: 't-shirts', component: TShirtsComponent },
+
         ],
+        
+    },
+    {
+        path: 'add-item', component: AddItemComponent
     }
     
 

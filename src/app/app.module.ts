@@ -24,8 +24,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     HomeComponent,
     NotFoundComponent,
     AboutComponent,
-    AuthenticationComponent,
-
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
