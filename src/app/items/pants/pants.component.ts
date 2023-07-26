@@ -1,6 +1,10 @@
-import { Component,OnInit } from '@angular/core';
+
+import { Component,OnInit} from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Item } from 'src/app/types/item';
+import { Store } from '@ngrx/store';
+import * as CartActions from '../../cart/cart.actions';
+
 
 @Component({
   selector: 'app-pants',
@@ -13,6 +17,7 @@ export class PantsComponent implements OnInit{
 
   constructor(
     private apiService: ApiService,
+    private store: Store<{ cart: Item[] }>
   ) {}
 
   ngOnInit(): void {
@@ -26,4 +31,9 @@ export class PantsComponent implements OnInit{
       },
     });
   }
+
+  addToCart(item: Item) {
+    this.store.dispatch(CartActions.addToCart({ item }));
+  }
+ 
 }

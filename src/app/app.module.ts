@@ -15,7 +15,9 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './cart/cart.component';
+import { cartReducer } from './cart/cart.reducer'
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { CartComponent } from './cart/cart.component';
     NotFoundComponent,
     AboutComponent,
     AuthenticationComponent,
-    CartComponent
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { CartComponent } from './cart/cart.component';
     UserModule,
     ItemsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({cart: cartReducer})
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

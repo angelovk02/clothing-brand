@@ -1,4 +1,7 @@
+/* Add your global styles here */
+
 .container {
+    display: flex;
     flex-wrap: wrap;
     background-image: url('../../resources/images/black15.webp');
     background-size: 100%;
@@ -7,25 +10,28 @@
     text-align: center;
     width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    color: white;
 }
 
 .items-container {
-    width: 100%;
+    flex: 1;
+    padding: 20px;
 }
 
-.item {
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-list li {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    /* Add more spacing between items */
 }
 
 .item-image {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
     margin-right: 10px;
     border-radius: 4px;
@@ -35,49 +41,37 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* Take up remaining space */
 }
 
 .item-name {
     font-weight: bold;
     font-size: 18px;
-    /* Increase font size for item name */
     margin-bottom: 5px;
-    /* Add spacing between item name and price */
 }
 
 .item-price {
     color: #ccc;
     font-size: 16px;
-    /* Adjust font size for price */
-
 }
 
 .total-price {
     flex-basis: 100%;
     text-align: center;
     margin-bottom: 20px;
-    color: white;
 }
 
 #cart-total-price {
     font-size: 24px;
     font-weight: bold;
-    color: white;
 }
 
 .form-container {
-    margin-top: auto;
-    /* Push the form container to the bottom */
     width: 400px;
     background-color: gray;
     padding: 20px;
     position: absolute;
-    /* Position the form container absolutely */
     right: 20px;
-    /* Move the form container to the right */
     bottom: 20px;
-    /* Move the form container to the bottom */
 }
 
 h2 {
@@ -99,9 +93,7 @@ form input[type="text"] {
     border-radius: 4px;
     box-sizing: border-box;
     background-color: white;
-    /* Set the input background color to white */
     color: black;
-    /* Set the input text color to black */
 }
 
 form button[type="submit"] {
@@ -117,14 +109,4 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
     background-color: #555;
-}
-
-.total-price {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#cart-total-price {
-    font-size: 24px;
-    font-weight: bold;
 }

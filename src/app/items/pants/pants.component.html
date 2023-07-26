@@ -1,11 +1,12 @@
 <div class="clothing-wrapper">
     <div class="clothing-container" *ngFor="let pairOfPants of pants">
-        <img class="clothing-image" src={{pairOfPants.image}} alt="Clothing Image">
-        <div class="clothing-name">{{pairOfPants.name}}</div>
-        <div class="clothing-price">{{pairOfPants.price}}</div>
+      <img class="clothing-image" src={{pairOfPants.image}} alt="Clothing Image">
+      <div class="clothing-name">{{pairOfPants.name}}</div>
+      <div class="clothing-price">{{pairOfPants.price}}</div>
+      <!-- Add to Cart button -->
+      <button (click)="addToCart(pairOfPants)">Add to Cart</button>
     </div>
-
-   
-
+  
     <!-- Add more clothing items here as needed -->
-</div>
+  </div>
+  

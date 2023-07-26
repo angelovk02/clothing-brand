@@ -1,26 +1,24 @@
 <div class="container">
     <div class="items-container">
-        <div class="item">
-            <img class="item-image" src="iamge">
-            <div class="item-info">
-                <div class="item-name">Product Name 1</div>
-                <div class="item-price">$50.00</div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="item-image" src="image">
-            <div class="item-info">
-                <div class="item-name">Product Name 2</div>
-                <div class="item-price">$35.00</div>
-            </div>
-        </div>
-        <!-- Add more items here -->
+        <h2>Your Cart</h2>
+        <ul class="cart-list">
+            <li *ngFor="let item of cartItems$ | async;">
+                <div class="cart-item">
+                    <img class="item-image" [src]="item.image" alt="Product Image">
+                    <div class="item-info">
+                        <div class="item-name">{{ item.name }}</div>
+                        <div class="item-price">{{ item.price | currency }}</div>
+                        <button (click)="removeFromCart(item.id)">Remove</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 
     <div class="form-container">
         <div class="total-price">
             <h2>Total Price</h2>
-            <div id="cart-total-price">$0.00</div>
+            <div id="cart-total-price">{{ calculateTotalPrice(cartItems$) | async | currency }}</div>
         </div>
 
         <h2>Delivery Information</h2>
@@ -34,4 +32,5 @@
             <button type="submit">Place Order</button>
         </form>
     </div>
+
 </div>
