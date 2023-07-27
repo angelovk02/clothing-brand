@@ -29,7 +29,6 @@ import { cartReducer } from './cart/cart.reducer'
     AboutComponent,
     AuthenticationComponent,
     CartComponent,
-    
   ],
   imports: [
     BrowserModule,
