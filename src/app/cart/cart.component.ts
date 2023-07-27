@@ -1,9 +1,7 @@
-import { Component,OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from '../types/item';
-import * as CartActions from './cart.actions';
-import { Observable } from 'rxjs';
-import { map,take } from 'rxjs/operators';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -11,46 +9,22 @@ import { map,take } from 'rxjs/operators';
   styleUrls: ['./cart.component.css']
 })
 
-export class CartComponent implements OnInit{
-  cartItems$: Observable<Item[]>;
-  private itemIdCounter = 1;
+export class CartComponent implements OnInit {
+  cartItems: any[] = []; // Replace 'any' with your actual Item interface/type
 
-  constructor(private store: Store<{ cart: { items: Item[] } }>) {
-    this.cartItems$ = store.select(state => state.cart.items);
-  }
+  constructor(private apiService: ApiService) { }
 
-  ngOnInit() {
-    // Calculate the next available item ID based on existing items in the cart
-    this.cartItems$.subscribe(items => {
-      if (items.length > 0) {
-        this.itemIdCounter = Math.max(...items.map(item => item.id)) + 1;
+
+  ngOnInit(): void {
+    this.apiService.getUserItems().subscribe({
+      next: (items: Item[]) => {
+        this.cartItems = items ;
+      },
+      error: (error) => {
+        console.error('Error fetching cart items:', error);
       }
     });
   }
 
-  addToCart(item: Item) {
-    const newItem: Item = { ...item, id: this.generateItemId() };
-    this.store.dispatch(CartActions.addToCart({ item: newItem }));
-  }
 
-  private generateItemId(): number {
-    return this.itemIdCounter++;
-  }
-
-  removeFromCart(itemId: number) {
-    this.store.dispatch(CartActions.removeFromCart({ itemId }));
-
-    // Check if the cart is empty after removing an item
-    this.cartItems$.pipe(take(1)).subscribe(items => {
-      if (items.length === 0) {
-        this.store.dispatch(CartActions.clearCart()); // Dispatch clearCart action
-      }
-    });
-  }
-
-  calculateTotalPrice(cartItems$: Observable<Item[]>): Observable<number> {
-    return cartItems$.pipe(
-      map(items => items ? items.reduce((sum, item) => sum + item.price, 0) : 0)
-    );
-  }
 }

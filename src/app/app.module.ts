@@ -17,7 +17,7 @@ import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './cart/cart.component';
-import { cartReducer } from './cart/cart.reducer'
+
 
 
 @NgModule({
@@ -38,7 +38,6 @@ import { cartReducer } from './cart/cart.reducer'
     ItemsModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({cart: cartReducer})
   ],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent]

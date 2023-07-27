@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Item } from 'src/app/types/item';
+import { UserService } from 'src/app/user/user.service';
+
 
 
 @Component({
@@ -16,6 +18,7 @@ export class HoodiesComponent implements OnInit{
 
   constructor(
     private apiService: ApiService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -29,4 +32,14 @@ export class HoodiesComponent implements OnInit{
       },
     });
   }
+
+  addItemToCart(itemId: string){
+    const {username, email, tel } = this.userService.user!
+
+
+    this.apiService.addToCart(email, itemId).subscribe(() => {}
+    )
+  }
+
+
 }

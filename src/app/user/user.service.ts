@@ -46,7 +46,6 @@ export class UserService implements OnDestroy {
   }
 
   login(email: string, password: string) {
-    console.log(this.user)
     return this.http
       .post<User>('/api/login', { email, password })
       .pipe(tap((user) => this.user$$.next(user)));
@@ -63,8 +62,8 @@ export class UserService implements OnDestroy {
     return this.http
       .get<User>('/api/users/profile')
       .pipe(tap((user) => this.user$$.next(user)));
+      
   }
-
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

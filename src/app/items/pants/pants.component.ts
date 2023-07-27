@@ -2,8 +2,7 @@
 import { Component,OnInit} from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Item } from 'src/app/types/item';
-import { Store } from '@ngrx/store';
-import * as CartActions from '../../cart/cart.actions';
+import { UserService } from 'src/app/user/user.service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class PantsComponent implements OnInit{
 
   constructor(
     private apiService: ApiService,
-    private store: Store<{ cart: Item[] }>
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -32,8 +31,16 @@ export class PantsComponent implements OnInit{
     });
   }
 
-  addToCart(item: Item) {
-    this.store.dispatch(CartActions.addToCart({ item }));
+  addItemToCart(itemId: string){
+    const {username, email, tel } = this.userService.user!
+
+
+    this.apiService.addToCart(email, itemId).subscribe(() => {
+        console.log('item ')
+      }
+    )
   }
+
+
  
 }

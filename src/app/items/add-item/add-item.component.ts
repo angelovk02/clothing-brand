@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-item',
@@ -19,11 +20,13 @@ export class AddItemComponent {
 
   constructor(private apiService: ApiService, private router: Router, private fb: FormBuilder){}
 
-
+  
   addItem() : void {
     if(this.form.invalid){
       return
     }
+
+    const id = uuidv4();
 
     const {
       name,
@@ -32,7 +35,7 @@ export class AddItemComponent {
       price,
     } = this.form.value;
 
-    this.apiService.addItem(name!, image!,category!,price!).subscribe(() => {
+    this.apiService.addItem(id!, name!, image!,category!,price!).subscribe(() => {
       this.router.navigate(['/shop']);
     });
   }
