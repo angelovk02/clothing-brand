@@ -17,6 +17,7 @@ import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './cart/cart.component';
+import { CurrencyPipe } from '@angular/common';
 
 
 
@@ -39,7 +40,7 @@ import { CartComponent } from './cart/cart.component';
     SharedModule,
     HttpClientModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [appInterceptorProvider,CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

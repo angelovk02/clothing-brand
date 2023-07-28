@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 
 export class CartComponent implements OnInit {
   cartItems: any[] = []; // Replace 'any' with your actual Item interface/type
-
+  totalCost = 0
   constructor(private apiService: ApiService) { }
 
 
@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
     this.apiService.getUserItems().subscribe({
       next: (items: Item[]) => {
         this.cartItems = items;
+        this.calculateTotalPrice()
       },
       error: (error) => {
         console.error('Error fetching cart items:', error);
@@ -33,6 +34,7 @@ export class CartComponent implements OnInit {
         this.apiService.getUserItems().subscribe({
           next: (items: Item[]) => {
             this.cartItems = items;
+            this.calculateTotalPrice()
           },
           error: (error) => {
             console.error('Error fetching cart items:', error);
@@ -46,4 +48,9 @@ export class CartComponent implements OnInit {
     });
   }
 
+  calculateTotalPrice() {
+    if (this.cartItems) {
+      this.totalCost = this.cartItems.reduce((total, item) => total + parseFloat(item.price), 0);
+    }
+  }
 }
