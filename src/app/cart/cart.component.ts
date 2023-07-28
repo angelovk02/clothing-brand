@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getUserItems().subscribe({
       next: (items: Item[]) => {
-        this.cartItems = items ;
+        this.cartItems = items;
       },
       error: (error) => {
         console.error('Error fetching cart items:', error);
@@ -26,5 +26,24 @@ export class CartComponent implements OnInit {
     });
   }
 
+  removeFromCart(itemId: string): void {
+    this.apiService.removeItemFromCart(itemId).subscribe({
+      next: () => {
+        // Item removed successfully, update the cart items
+        this.apiService.getUserItems().subscribe({
+          next: (items: Item[]) => {
+            this.cartItems = items;
+          },
+          error: (error) => {
+            console.error('Error fetching cart items:', error);
+          }
+        })
+      },
+      error: (error) => {
+        console.error('Error removing item from cart:', error);
+        // Handle any error here (e.g., show an error message)
+      }
+    });
+  }
 
 }

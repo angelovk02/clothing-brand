@@ -9,6 +9,7 @@
                     <div class="item-info">
                         <div class="item-name">{{ item.name }}</div>
                         <div class="item-price">{{ item.price}}</div>
+                        <button (click)="removeFromCart(item.id)">Remove From Cart</button>
                     </div>
                 </div>
             </li>

@@ -38,4 +38,7 @@ export class ApiService {
     return this.http.get<Item[]>(`${apiUrl}/themes/t-shirts`);
   }
 
+  removeItemFromCart(itemId: string): Observable<any> {
+    return this.http.delete(`/api/themes/cart/${itemId}`);
+  }
 }
