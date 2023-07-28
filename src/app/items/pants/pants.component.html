@@ -4,7 +4,7 @@
       <div class="clothing-name">{{pairOfPants.name}}</div>
       <div class="clothing-price">{{pairOfPants.price}}</div>
       <!-- Add to Cart button -->
-      <button (click)="addItemToCart(pairOfPants.id)">Add to Cart</button>
+      <button *ngIf="isLoggedIn" (click)="addItemToCart(pairOfPants.id)">Add to Cart</button>
     </div>
   
     <!-- Add more clothing items here as needed -->

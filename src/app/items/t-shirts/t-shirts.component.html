@@ -3,7 +3,7 @@
         <img class="clothing-image" src={{tShirt.image}} alt="Clothing Image">
         <div class="clothing-name">{{tShirt.name}}</div>
         <div class="clothing-price">{{tShirt.price}}</div>
-        <button (click)="addItemToCart(tShirt.id)">Add to Cart</button>
+        <button *ngIf="isLoggedIn" (click)="addItemToCart(tShirt.id)">Add to Cart</button>
         
     </div>
 

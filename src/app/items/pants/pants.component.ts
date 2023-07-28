@@ -31,6 +31,10 @@ export class PantsComponent implements OnInit{
     });
   }
 
+  get isLoggedIn(): boolean{
+    return this.userService.isLogged
+  }
+
   addItemToCart(itemId: string){
     const {username, email, tel } = this.userService.user!
 
