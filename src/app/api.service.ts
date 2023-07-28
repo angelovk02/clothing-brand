@@ -41,4 +41,10 @@ export class ApiService {
   removeItemFromCart(itemId: string): Observable<any> {
     return this.http.delete(`/api/themes/cart/${itemId}`);
   }
+
+  placeOrder(city: string, address: string): Observable<any> {
+    const orderData = { city, address };
+
+    return this.http.put<any>(`/api/themes/cart/placeOrder`, orderData)
+  }
 }

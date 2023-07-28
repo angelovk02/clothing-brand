@@ -23,7 +23,7 @@
           Username is required!
         </p>
         <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
-          Username's length should not be less than 3!
+          Username's length should not be less than {{form.get('username')?.errors?.['minlength']?.['requiredLength']}}characters!
         </p>
     </ng-container>
 

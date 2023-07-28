@@ -18,6 +18,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { StoreModule } from '@ngrx/store';
 import { CartComponent } from './cart/cart.component';
 import { CurrencyPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,6 +40,7 @@ import { CurrencyPipe } from '@angular/common';
     ItemsModule,
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [appInterceptorProvider,CurrencyPipe],
   bootstrap: [AppComponent]
