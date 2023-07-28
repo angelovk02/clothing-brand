@@ -28,7 +28,7 @@
       <div class="user-dropdown">
         <a href="#" class="user-icon" (click)="toggleDropdown($event)"><i class="fas fa-user"></i></a>
         <ul class="dropdown-menu" *ngIf="dropdown">
-          <li><a href="#">Profile</a></li>
+          <li><a routerLink="/profile">Profile</a></li>
           <li><a (click)="logout(); toggleDropdown($event)" class="logout">Logout</a></li>
         </ul>
       </div>

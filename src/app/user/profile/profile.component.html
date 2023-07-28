@@ -1,0 +1,72 @@
+<div class="profile-container">
+    <ng-container *ngIf="!isEditMode">
+        <h2>Profile</h2>
+        <div class="profile-info">
+            <div>
+                <label>Email:</label>
+                <span>{{profileDetails.email}}</span>
+            </div>
+            <div>
+                <label>Username:</label>
+                <span>{{profileDetails.username}}</span>
+            </div>
+            <div>
+                <label>Phone:</label>
+                <span>{{profileDetails.tel}}</span>
+            </div>
+        </div>
+
+        <button class="edit-btn" (click)="toggleEditMode()">Edit</button>
+    </ng-container>
+
+    <!-- Edit Form -->
+    <ng-container *ngIf="isEditMode">
+
+            <h2>Edit Profile</h2>
+            <form [formGroup]="form" (ngSubmit)="saveProfileHandler()">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" formControlName="email" >
+                </div>
+
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                      Email is required!
+                    </p>
+                    <p
+                      class="error"
+                      *ngIf="form.get('email')?.errors?.['appEmailValidator']"
+                    >
+                      Email is not valid!
+                    </p>
+                  </ng-container>
+
+
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" formControlName="username">
+                </div>
+
+                <ng-container *ngIf="form.get('username')?.touched">
+                    <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+                      Username is required!
+                    </p>
+                    <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+                      Username's length should not be less than 5!
+                    </p>
+                  </ng-container>
+
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="tel" formControlName="tel">
+                </div>
+
+                <button  class="edit-btn"type="submit">Save</button>
+                <button  class="edit-btn" type="button" (click)="toggleEditMode()">Cancel</button>
+            </form>
+
+    </ng-container>
+</div>
+
+

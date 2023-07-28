@@ -6,6 +6,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user/user.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../shared/shared.module";
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -15,6 +16,7 @@ import { SharedModule } from "../shared/shared.module";
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
