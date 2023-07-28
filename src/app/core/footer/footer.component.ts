@@ -15,6 +15,10 @@ export class FooterComponent {
     return this.userService.isLogged
   }
 
+  get isAdmin(): boolean {
+    return this.userService.user!.username === 'admin'
+  }
+
   dropdown: boolean = false
 
   toggleDropdown(event: Event) {
