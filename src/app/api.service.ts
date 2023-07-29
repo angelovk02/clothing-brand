@@ -12,39 +12,39 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   addItem(id:string, name:String,image:String,category:String,price:String) {
-    return this.http.post<Item>('/api/themes', { id, name, image, category, price });
+    return this.http.post<Item>('/api/items', { id, name, image, category, price });
   }
 
   addToCart(userEmail: string, itemId: string) {
     const payload = { userEmail, itemId };
-    return this.http.post<any>(`/api/themes/cart`, payload);
+    return this.http.post<any>(`/api/items/cart`, payload);
   }
   getUserItems(): Observable<Item[]> {
-    return this.http.get<Item[]>('/api/themes/cart');
+    return this.http.get<Item[]>('/api/items/cart');
   }
 
   findHoodies() {
     const { apiUrl } = environment;
-    return this.http.get<Item[]>(`${apiUrl}/themes/hoodies`);
+    return this.http.get<Item[]>(`${apiUrl}/items/hoodies`);
   }
 
   findPants() {
     const { apiUrl } = environment;
-    return this.http.get<Item[]>(`${apiUrl}/themes/pants`);
+    return this.http.get<Item[]>(`${apiUrl}/items/pants`);
   }
 
   findTshirts() {
     const { apiUrl } = environment;
-    return this.http.get<Item[]>(`${apiUrl}/themes/t-shirts`);
+    return this.http.get<Item[]>(`${apiUrl}/items/t-shirts`);
   }
 
   removeItemFromCart(itemId: string): Observable<any> {
-    return this.http.delete(`/api/themes/cart/${itemId}`);
+    return this.http.delete(`/api/items/cart/${itemId}`);
   }
 
   placeOrder(city: string, address: string): Observable<any> {
     const orderData = { city, address };
 
-    return this.http.put<any>(`/api/themes/cart/placeOrder`, orderData)
+    return this.http.put<any>(`/api/items/cart/placeOrder`, orderData)
   }
 }
