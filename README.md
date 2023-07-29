@@ -1,13 +1,43 @@
-see add item only if admin username 
-add buy button to the clothes
-add cart page
-add orders to the cart when buy button is pressed 
+Welcome to My Clothing Store Project Overview
 
+Welcome to my clothing store, a web application that offers a wide range of clothing items for customers to explore. This project aims to provide an intuitive and user-friendly experience for visitors to browse through the available items and make purchases.
+Functionality
 
-moga na user da dobavq cart i vseki put kato cukne add item to cart
-tozi item da otiwa w bazata danni
-i posle kato otida na kart da prawq zaqwka vseki put i da q pokazwam
-i posle ako izbere remove from cart shte prawq zaqwka i shte updatevam cart i shte maham ot bazata
-tozi item
+Public Access:
 
-a kogato checkoutne shte izchistwam karta i shte napisha bought primerno
+    Non-logged-in users can freely explore the items available in the store without any restrictions.
+    They can view the product details, such as name, image, category, and price.
+
+User Authentication:
+
+    To place an order, users are required to log in to the website using their credentials.
+    User authentication ensures a secure and personalized experience for each user.
+
+Cart Management:
+
+    Once logged in, users have access to their shopping cart, where they can add and remove items.
+    Users can easily keep track of their selected items before proceeding to the checkout process.
+
+Order Placement:
+
+    When a user decides to place an order, they are prompted to provide delivery information, such as city and address.
+    This delivery information is stored securely in the database for future reference.
+
+Order Fulfillment:
+
+    Upon order placement, the selected items are transferred from the user's cart to the "bought items" array in the database.
+    The cart is then cleared to make way for future purchases.
+
+Admin Privileges:
+
+    Users with the role of "admin" enjoy additional privileges.
+    Admin users can add, edit, and remove items from the store, ensuring that the product catalog is up to date.
+
+User Page:
+
+    Each user has a dedicated user page where they can easily view and edit their personal information.
+    Users can conveniently update their email, username, and phone number as needed.
+
+Conclusion
+
+In conclusion, the clothing store project provides a seamless shopping experience for all users. Non-logged-in users can explore the products, while logged-in users enjoy the convenience of managing their carts, placing orders, and updating their profiles. Admin users have the added advantage of maintaining the store's product inventory. The project aims to deliver a delightful experience for all customers, whether they are browsing the latest trends or making their desired purchases.

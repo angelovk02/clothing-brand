@@ -47,4 +47,14 @@ export class ApiService {
 
     return this.http.put<any>(`/api/items/cart/placeOrder`, orderData)
   }
+
+
+  updateItem(item: Item): Observable<Item> {
+    const url = `/api/items/${item.id}`;
+    return this.http.put<Item>(url, item);
+  }
+
+  deleteItem(itemId: string): Observable<void> {
+    return this.http.delete<void>(`/api/items/${itemId}`);
+  }
 }

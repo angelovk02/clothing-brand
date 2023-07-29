@@ -18,7 +18,7 @@ interface Profile {
   styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
   isEditMode: boolean = false
 
   profileDetails: Profile = {
@@ -55,7 +55,6 @@ export class ProfileComponent {
 
   toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
-    console.log(this.isEditMode)
   }
 
   saveProfileHandler(): void {
