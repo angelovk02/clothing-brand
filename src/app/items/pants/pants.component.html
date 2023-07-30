@@ -5,6 +5,7 @@
     <ng-container *ngIf="!isEditMode">
       <div class="clothing-name">{{pairOfPants.name}}</div>
       <div class="clothing-price">{{pairOfPants.price}}</div>
+      <button *ngIf="!isAdmin" (click)="addItemToCart(pairOfPants.id)">Add to cart</button>
       <button *ngIf="isAdmin" (click)="editItem(pairOfPants)">Edit</button>
       <button *ngIf="isAdmin" (click)="deleteItem(pairOfPants.id)">Delete</button>
     </ng-container>
