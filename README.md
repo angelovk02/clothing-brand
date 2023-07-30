@@ -1,6 +1,7 @@
 Welcome to My Clothing Store Project Overview
 
-Welcome to my clothing store, a web application that offers a wide range of clothing items for customers to explore. This project aims to provide an intuitive and user-friendly experience for visitors to browse through the available items and make purchases.
+This project aims to provide an intuitive and user-friendly experience for visitors to browse through the available items and make purchases.
+
 Functionality
 
 Public Access:
@@ -28,15 +29,17 @@ Order Fulfillment:
     Upon order placement, the selected items are transferred from the user's cart to the "bought items" array in the database.
     The cart is then cleared to make way for future purchases.
 
-Admin Privileges:
-
-    Users with the role of "admin" enjoy additional privileges.
+Admin Privileges:   
+    Only a user with the "admin" username can add and delete items.
     Admin users can add, edit, and remove items from the store, ensuring that the product catalog is up to date.
 
 User Page:
 
     Each user has a dedicated user page where they can easily view and edit their personal information.
     Users can conveniently update their email, username, and phone number as needed.
+
+
+Additionally, I have added the rest api in the projects folder as well.
 
 Conclusion
 
