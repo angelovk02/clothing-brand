@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './user/profile/profile.component';
 
@@ -20,10 +19,6 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
   },
   {
     path: 'profile', component: ProfileComponent 

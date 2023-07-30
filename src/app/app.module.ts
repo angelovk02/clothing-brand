@@ -10,7 +10,6 @@ import { ShopComponent } from './shop/shop.component';
 import { ItemsModule } from './items/items.module';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { AboutComponent } from './about/about.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { appInterceptorProvider } from './app.interceptor';
@@ -28,7 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShopComponent,
     HomeComponent,
     NotFoundComponent,
-    AboutComponent,
     AuthenticationComponent,
     CartComponent,
   ],
